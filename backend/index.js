@@ -26,11 +26,9 @@ const app = express();
 // CORS configuration for authentication
 const corsOptions = {
     origin: [
-        process.env.FRONTEND_URL || 'http://localhost:5173',
-        'http://localhost:5174',
-        'http://localhost:3000',
-        'https://excel-analytics-platform.vercel.app', // Add your Vercel domain
-        /\.vercel\.app$/ // Allow all Vercel preview deployments
+    process.env.FRONTEND_URL || 'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:3000'
     ],
     credentials: true,
     optionsSuccessStatus: 200
@@ -410,7 +408,6 @@ mongoose.connect(process.env.MONGO_URI)
     console.log("   3. Verify connection string and credentials");
 });
 
-// Export for Vercel
 module.exports = app;
 
 // For local development
