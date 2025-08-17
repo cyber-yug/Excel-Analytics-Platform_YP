@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  
+  <!-- Excel-style "E" with data bars -->
+  <g fill="#2563eb">
+    <!-- Letter E structure -->
+    <rect x="8" y="8" width="2" height="16"/>
+    <rect x="8" y="8" width="8" height="2"/>
+    <rect x="8" y="15" width="6" height="2"/>
+    <rect x="8" y="22" width="8" height="2"/>
+    
+    <!-- Small chart bars -->
+    <rect x="18" y="18" width="2" height="6" fill="#10b981"/>
+    <rect x="21" y="14" width="2" height="10" fill="#3b82f6"/>
+    <rect x="24" y="16" width="2" height="8" fill="#8b5cf6"/>
+  </g>
+</svg>
