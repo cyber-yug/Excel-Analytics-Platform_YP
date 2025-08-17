@@ -1,26 +1,43 @@
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "frontend/package.json",
+//       "use": "@vercel/static-build",
+//       "config": {
+//         "distDir": "dist"
+//       }
+//     },
+//     {
+//       "src": "backend/index.js",
+//       "use": "@vercel/node"
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "src": "/api/(.*)",
+//       "dest": "/backend/index.js"
+//     },
+//     {
+//       "src": "/assets/(.*)",
+//       "dest": "/frontend/dist/assets/$1"
+//     },
+//     {
+//       "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|gif))",
+//       "dest": "/frontend/dist/$1"
+//     },
+//     {
+//       "src": "/(.*)",
+//       "dest": "/frontend/dist/index.html"
+//     }
+//   ]
+// }
+
 {
-  "version": 2,
-  "builds": [
+  "routes": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "backend/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/backend/index.js"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/frontend/dist/index.html"
+      "src": "/[^.]+",
+      "dest": "/"
     }
   ]
 }
