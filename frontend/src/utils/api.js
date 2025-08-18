@@ -1,13 +1,25 @@
 import axios from 'axios';
 
+// Environment-based API URL configuration
+const getApiBaseUrl = () => {
+    // Check if we're in production (Vercel)
+    if (import.meta.env.PROD) {
+        return '/api';
+    }
+    
+    // Development - use environment variable or fallback to local IP
+    return import.meta.env.VITE_API_URL || 'http://192.168.1.21:3001/api';
+};
+
 // Create axios instance with correct port
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001/api',
+    baseURL: getApiBaseUrl(),
     withCredentials: true,
     timeout: 10000
 });
 
-console.log('🌐 New API Base URL:', import.meta.env.VITE_API_URL || 'http://localhost:3001/api');
+console.log('🌐 API Base URL:', getApiBaseUrl());
+console.log('🏗️ Environment:', import.meta.env.PROD ? 'Production' : 'Development');
 
 // Token storage with localStorage persistence
 let accessToken = localStorage.getItem('accessToken');

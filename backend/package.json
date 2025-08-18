@@ -7,7 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-atlas": "node test-atlas-connection.js"
+    "test-atlas": "node test-atlas-connection.js",
+    "vercel-build": "echo 'Backend build complete'",
+    "postinstall": "echo 'Backend dependencies installed'"
   },
   "keywords": [],
   "author": "",

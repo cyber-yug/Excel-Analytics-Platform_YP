@@ -25,11 +25,35 @@ const app = express();
 
 // CORS configuration for authentication
 const corsOptions = {
-    origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
-    'http://localhost:5174',
-    'http://localhost:3000'
-    ],
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps, curl, Postman)
+        if (!origin) return callback(null, true);
+        
+        const allowedOrigins = [
+            // Local development
+            'http://192.168.1.21:5173',
+            'http://192.168.1.21:5174', 
+            'http://192.168.1.21:3000',
+            'http://localhost:5173',
+            'http://localhost:5174',
+            'http://localhost:3000',
+            // Production - add your Vercel domain
+            process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+            process.env.FRONTEND_URL
+        ].filter(Boolean);
+        
+        // Allow any vercel.app domain for production
+        if (origin.includes('.vercel.app')) {
+            return callback(null, true);
+        }
+        
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            console.log('CORS blocked origin:', origin);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
     optionsSuccessStatus: 200
 };

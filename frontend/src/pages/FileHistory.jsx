@@ -16,7 +16,7 @@ const FileHistory = () => {
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/upload/files');
+      const response = await axios.get('http://192.168.1.21:3001/api/upload/files');
       setFiles(response.data.files);
     } catch (error) {
       console.error('Failed to fetch files:', error);

@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'],
+    origin: ['http://192.168.1.21:5173', 'http://192.168.1.21:5174', 'http://192.168.1.21:3000'],
     credentials: true
 }));
 app.use(express.json());
@@ -252,7 +252,7 @@ app.use((error, req, res, next) => {
 const PORT = process.env.PORT || 3002; // Changed port to 3002
 app.listen(PORT, () => {
     console.log(`🚀 Excel Analytics Server running on port ${PORT}`);
-    console.log(`🌐 API Base URL: http://localhost:${PORT}/api`);
+    console.log(`🌐 API Base URL: http://192.168.1.21:${PORT}/api`);
 });
 
 module.exports = app;

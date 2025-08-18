@@ -13,9 +13,9 @@ const app = express();
 // CORS configuration for authentication
 const corsOptions = {
     origin: [
-        process.env.FRONTEND_URL || 'http://localhost:5173',
-        'http://localhost:5174', // Add port 5174 as backup
-        'http://localhost:3000'  // Add port 3000 as backup
+        process.env.FRONTEND_URL || 'http://192.168.1.21:5173',
+        'http://192.168.1.21:5174', // Add port 5174 as backup
+        'http://192.168.1.21:3000'  // Add port 3000 as backup
     ],
     credentials: true, // Allow cookies
     optionsSuccessStatus: 200

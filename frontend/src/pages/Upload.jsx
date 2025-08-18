@@ -52,7 +52,7 @@ const Upload = () => {
 
     try {
       console.log('Uploading file:', file.name);
-      const response = await axios.post('http://localhost:3001/api/upload', formData, {
+      const response = await axios.post('http://192.168.1.21:3001/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

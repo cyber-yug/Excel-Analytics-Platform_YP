@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const fetchDashboardStats = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/upload/files');
+      const response = await axios.get('http://192.168.1.21:3001/api/upload/files');
       const files = response.data.files;
       
       const totalRows = files.reduce((sum, file) => sum + file.rowCount, 0);

@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = 'http://localhost:3001/api';
+const BASE_URL = 'http://192.168.1.21:3001/api';
 
 // Test data
 const testUser = {
