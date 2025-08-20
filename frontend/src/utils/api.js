@@ -7,8 +7,8 @@ const getApiBaseUrl = () => {
         return '/api';
     }
     
-    // Development - use environment variable or fallback to local IP
-    return import.meta.env.VITE_API_URL || 'http://192.168.1.21:3001/api';
+    // Development - use environment variable or fallback to localhost
+    return import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 };
 
 // Create axios instance with correct port

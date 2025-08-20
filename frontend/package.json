@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 192.168.1.21 --port 5173",
+    "dev": "vite --host localhost --port 5173",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview --host 192.168.1.21 --port 4173",
+    "preview": "vite preview --host localhost --port 4173",
     "vercel-build": "vite build"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, Calendar, Database, BarChart3, Trash2 } from 'lucide-react';
-import axios from 'axios';
+import api from '../utils/api';
 import './FileHistory.css';
 
 const FileHistory = () => {
@@ -16,7 +16,7 @@ const FileHistory = () => {
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get('http://192.168.1.21:3001/api/upload/files');
+      const response = await api.get('/upload/files');
       setFiles(response.data.files);
     } catch (error) {
       console.error('Failed to fetch files:', error);

@@ -14,7 +14,7 @@ import {
   Legend,
 } from 'chart.js';
 import { BarChart3, Download, ArrowLeft, Zap } from 'lucide-react';
-import axios from 'axios';
+import api from '../utils/api';
 import EChartsComponent from '../components/EChartsComponent';
 import {
   generateBarChartOption,
@@ -77,7 +77,7 @@ const Analytics = () => {
 
   const fetchFiles = async () => {
     try {
-      const response = await axios.get('http://192.168.1.21:3001/api/upload/files');
+      const response = await api.get('/upload/files');
       setFiles(response.data.files);
     } catch (error) {
       console.error('Failed to fetch files:', error);
@@ -89,7 +89,7 @@ const Analytics = () => {
   const fetchSpecificFile = async (id) => {
     try {
       setError(null);
-      const response = await axios.get(`http://192.168.1.21:3001/api/upload/files/${id}`);
+      const response = await api.get(`/upload/files/${id}`);
       const file = response.data.file;
       setSelectedFile(file);
       fetchStats(id);
@@ -103,7 +103,7 @@ const Analytics = () => {
 
   const fetchStats = async (id) => {
     try {
-      const response = await axios.get(`http://192.168.1.21:3001/api/analytics/stats/${id}`);
+      const response = await api.get(`/analytics/stats/${id}`);
       setStats(response.data);
       
       // Auto-generate chart suggestions
@@ -223,7 +223,7 @@ const Analytics = () => {
 
     try {
       console.log('Generating auto chart with config:', suggestion.config);
-      const response = await axios.post(`http://192.168.1.21:3001/api/analytics/chart/${selectedFile._id}`, suggestion.config);
+      const response = await api.post(`/analytics/chart/${selectedFile._id}`, suggestion.config);
       console.log('Auto chart response:', response.data);
       setChartData(response.data);
       setChartConfig(suggestion.config);
@@ -337,7 +337,7 @@ const Analytics = () => {
 
     try {
       console.log('Generating chart with updated config:', updatedConfig);
-      const response = await axios.post(`http://192.168.1.21:3001/api/analytics/chart/${selectedFile._id}`, updatedConfig);
+      const response = await api.post(`/analytics/chart/${selectedFile._id}`, updatedConfig);
       console.log('Chart response:', response.data);
       setChartData(response.data);
     } catch (error) {
@@ -393,7 +393,7 @@ const Analytics = () => {
 
     try {
       console.log('Generating chart with config:', chartConfig);
-      const response = await axios.post(`http://192.168.1.21:3001/api/analytics/chart/${selectedFile._id}`, chartConfig);
+      const response = await api.post(`/analytics/chart/${selectedFile._id}`, chartConfig);
       console.log('Chart response:', response.data);
       setChartData(response.data);
     } catch (error) {

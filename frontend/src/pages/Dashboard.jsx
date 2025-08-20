@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Upload, BarChart3, FileText, TrendingUp } from 'lucide-react';
-import axios from 'axios';
+import api from '../utils/api';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const fetchDashboardStats = async () => {
     try {
-      const response = await axios.get('http://192.168.1.21:3001/api/upload/files');
+      const response = await api.get('/upload/files');
       const files = response.data.files;
       
       const totalRows = files.reduce((sum, file) => sum + file.rowCount, 0);

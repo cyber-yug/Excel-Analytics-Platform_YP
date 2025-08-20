@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Upload as UploadIcon, FileText, AlertCircle, CheckCircle, Cloud, Zap, Shield, BarChart3 } from 'lucide-react';
-import axios from 'axios';
+import api from '../utils/api';
 import './Upload.css';
 
 const Upload = () => {
@@ -52,7 +52,7 @@ const Upload = () => {
 
     try {
       console.log('Uploading file:', file.name);
-      const response = await axios.post('http://192.168.1.21:3001/api/upload', formData, {
+      const response = await api.post('/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
