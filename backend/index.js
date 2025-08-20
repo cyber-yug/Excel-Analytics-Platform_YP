@@ -34,7 +34,8 @@ const corsOptions = {
             'http://localhost:5173',
             'http://localhost:5174',
             'http://localhost:3000',
-            // Production Vercel domains
+            // Production Vercel domains (note the correct URL)
+            'https://excel-analytics-platform-yp-fronten.vercel.app',
             'https://excel-analytics-platform-yp-frontend.vercel.app',
             process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
             process.env.FRONTEND_URL
