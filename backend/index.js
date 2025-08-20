@@ -31,19 +31,17 @@ const corsOptions = {
         
         const allowedOrigins = [
             // Local development
-            'http://192.168.1.21:5173',
-            'http://192.168.1.21:5174', 
-            'http://192.168.1.21:3000',
             'http://localhost:5173',
             'http://localhost:5174',
             'http://localhost:3000',
-            // Production - add your Vercel domain
+            // Production Vercel domains
+            'https://excel-analytics-platform-yp-frontend.vercel.app',
             process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
             process.env.FRONTEND_URL
         ].filter(Boolean);
         
         // Allow any vercel.app domain for production
-        if (origin.includes('.vercel.app')) {
+        if (origin && origin.includes('.vercel.app')) {
             return callback(null, true);
         }
         

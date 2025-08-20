@@ -4,7 +4,7 @@ import axios from 'axios';
 const getApiBaseUrl = () => {
     // Check if we're in production (Vercel)
     if (import.meta.env.PROD) {
-        return '/api';
+        return 'https://excel-analytics-platform-yp-backend.vercel.app/api';
     }
     
     // Development - use environment variable or fallback to localhost
